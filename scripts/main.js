@@ -13,6 +13,11 @@ function Book(title, author, numPages, alreadyRead) {
 // Library array
 const library = [];
 
+// Method to add Book to library
+function addBookToLibrary(title, author, numPages, alreadyRead) {
+  library.push(new Book(title, author, numPages, alreadyRead));
+}
+
 // Initialzier for javascript
 function initialize() {
   library.push(new Book("The Hobbit", "J.R.R. Tolkien", 295, false));
