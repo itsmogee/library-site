@@ -20,11 +20,13 @@ function addBookToLibrary(title, author, numPages, alreadyRead) {
 
 // Initialzier for javascript
 function initialize() {
-  library.push(new Book("The Hobbit", "J.R.R. Tolkien", 295, false));
-  library.push(new Book("The Lord of the Rings", "J.R.R. Tolkien", 644, false));
-  library.push(new Book("A Song of Fire and Ice", "G.R.R. Martin", 694, false));
-  library.push(new Book("To kill a Mockingbird", "Harper Lee ", 350, false));
+  addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
+  addBookToLibrary("The Lord of the Rings", "J.R.R. Tolkien", 644, false);
+  addBookToLibrary("A Song of Fire and Ice", "G.R.R. Martin", 694, false);
+  addBookToLibrary("To kill a Mockingbird", "Harper Lee ", 350, false);
 }
 
-// Method to add Book to library
-function addBookToLibrary() {}
+// Initialize
+initialize();
+
+console.log(library[2].info());
