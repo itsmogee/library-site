@@ -20,15 +20,24 @@ body {
     "footer";
 
   header {
+    /*as child grid*/
     grid-area: header;
     justify-self: center;
-    width: 100%;
+
+    /*display*/
     background-color: rgba(0, 200, 0, 0.4);
     color: wheat;
-    font-weight: 900;
-    font-size: 2rem;
     height: 5rem;
     width: 95%;
+
+    /*font*/
+    font-weight: 900;
+    font-size: 2rem;
+
+    /*Grid as parent*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 25% 25%;
+    justify-items: center;
   }
 
   main {
@@ -50,4 +59,10 @@ body {
     height: 3rem;
     width: 95%;
   }
+}
+
+.nav-icon {
+  width: 32px;
+  height: 32px;
+  align-self: center;
 }
