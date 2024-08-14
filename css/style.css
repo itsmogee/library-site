@@ -4,6 +4,7 @@
 }
 
 body {
+  background: url("../assets/beach.png");
 }
 
 .content {
@@ -22,19 +23,31 @@ body {
     grid-area: header;
     justify-self: center;
     width: 100%;
-    text-align: center;
-    background-color: green;
+    background-color: rgba(0, 200, 0, 0.4);
+    color: wheat;
+    font-weight: 900;
+    font-size: 2rem;
+    height: 5rem;
+    width: 95%;
   }
 
   main {
     grid-area: main;
+    justify-self: center;
     overflow: auto;
-    background-color: wheat;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 95%;
   }
 
   footer {
     grid-area: footer;
-    background-color: grey;
+    justify-self: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-weight: 900;
+    font-size: 2rem;
+    color: wheat;
     text-align: center;
+    height: 3rem;
+    width: 95%;
   }
 }
