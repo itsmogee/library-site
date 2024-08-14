@@ -3,6 +3,9 @@
   margin: 0;
 }
 
+body {
+}
+
 .content {
   height: 100vh;
 
@@ -17,6 +20,9 @@
 
   header {
     grid-area: header;
+    justify-self: center;
+    width: 100%;
+    text-align: center;
     background-color: green;
   }
 
@@ -29,5 +35,6 @@
   footer {
     grid-area: footer;
     background-color: grey;
+    text-align: center;
   }
 }
