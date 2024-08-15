@@ -63,15 +63,27 @@ initialize();
 
 const bookShelf = document.querySelector("#bookshelf");
 //bookShelf.style.backgroundColor = "black";
-bookShelf.style.color = "red";
+bookShelf.style.color = "wheat";
 
 function createCard(Book) {
   const card_container = document.createElement("div");
   const card = document.createElement("div");
+
+  // Image containter and ribbon for read/unread
+  const card_img_container = document.createElement("div");
   const card_img = document.createElement("img");
   card_img.classList.add("book-img");
-  const card_title = document.createElement("div");
-  const card_author = document.createElement("div");
+  const card_img_ribbon = document.createElement("div");
+  card_img_ribbon.classList.add("ribbon");
+  const card_img_ribbon_span = document.createElement("span");
+  card_img_ribbon_span.textContent = "Unread";
+  card_img_container.appendChild(card_img);
+  card_img_container.appendChild(card_img_ribbon);
+  card_img_ribbon.appendChild(card_img_ribbon_span);
+
+  // Card Information
+  const card_title = document.createElement("h1");
+  const card_author = document.createElement("h2");
   const card_info = document.createElement("div");
   card_container.classList.add("card_container");
   card.classList.add("card");
@@ -79,15 +91,13 @@ function createCard(Book) {
   card_title.textContent = Book.title;
   card_author.textContent = Book.author;
   card_info.textContent += `${Book.numPages} ${Book.alreadyRead}`;
-  card.appendChild(card_img);
+  card.appendChild(card_img_container);
   card.appendChild(card_title);
   card.appendChild(card_author);
   card.appendChild(card_info);
   card_container.appendChild(card);
   bookShelf.appendChild(card_container);
 }
-
-console.log(library[2].info());
 
 library.forEach((book) => {
   createCard(book);

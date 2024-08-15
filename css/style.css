@@ -5,6 +5,8 @@
 
 body {
   background: url("../assets/beach.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .content {
@@ -38,6 +40,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 25% 25%;
     justify-items: center;
+
+    h1 {
+      align-self: center;
+    }
   }
 
   main {
@@ -70,6 +76,12 @@ body {
 .card_container {
   display: flex;
   flex-direction: column;
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
 }
 
 #bookshelf {
@@ -89,9 +101,65 @@ body {
   width: 100%;
   border-radius: 20px;
   padding: 1rem;
-  background-color: rgba(200, 200, 200, 0.5);
+  background-color: rgba(200, 200, 200, 0.4);
 
   display: grid;
   grid-template-rows: 3fr auto auto auto;
   justify-items: center;
+}
+
+.search-input {
+  align-self: center;
+  height: 50%;
+  border-radius: 12px;
+
+  width: 90%;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  font-size: 1.4rem;
+  background-image: url(../assets/magnify.svg);
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  padding: 12px 12px 12px 40px;
+}
+
+.add-btn {
+  width: 30%;
+  height: 70%;
+  align-self: center;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  border: 0px solid #000;
+  padding: 1rem;
+
+  transition-duration: 0.4s;
+}
+
+.add-btn:hover {
+  background-color: #829a2d; /* Green */
+}
+
+.ribbon {
+  --t: -90%; /* the top offset */
+  --f: 10px;
+  --r: 10px;
+
+  width: 25%;
+  height: 6%;
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+  inset: var(--t) 0 auto 73%;
+  padding: 4px 0 var(--f) calc(4px + var(--r));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--f)),
+    calc(100% - var(--f)) 100%,
+    calc(100% - var(--f)) calc(100% - var(--f)),
+    0 calc(100% - var(--f)),
+    var(--r) calc(50% - var(--f) / 2)
+  );
+  background: #bd1550;
+  box-shadow: 0 calc(-1 * var(--f)) 0 inset #0005;
 }
