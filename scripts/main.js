@@ -25,7 +25,7 @@ function initialize() {
     "The Hobbit",
     "J.R.R. Tolkien",
     295,
-    false,
+    true,
     "../assets/thehobbit.jpg",
   );
   addBookToLibrary(
@@ -69,14 +69,15 @@ function createCard(Book) {
   const card_container = document.createElement("div");
   const card = document.createElement("div");
 
-  // Image containter and ribbon for read/unread
+  // Image containter and card ribbon for read/unread
   const card_img_container = document.createElement("div");
   const card_img = document.createElement("img");
   card_img.classList.add("book-img");
   const card_img_ribbon = document.createElement("div");
   card_img_ribbon.classList.add("ribbon");
   const card_img_ribbon_span = document.createElement("span");
-  card_img_ribbon_span.textContent = "Unread";
+  card_img_ribbon_span.textContent =
+    Book.alreadyRead === true ? "Read" : "Unread";
   card_img_container.appendChild(card_img);
   card_img_container.appendChild(card_img_ribbon);
   card_img_ribbon.appendChild(card_img_ribbon_span);
@@ -85,16 +86,30 @@ function createCard(Book) {
   const card_title = document.createElement("h1");
   const card_author = document.createElement("h2");
   const card_info = document.createElement("div");
+  const info_btns = document.createElement("div");
+  const readBtn = document.createElement("button");
+  readBtn.textContent = "Read";
+  readBtn.classList.add("read-btn");
+  const deleteBtn = document.createElement("button");
+  deleteBtn.type = "button";
+  deleteBtn.textContent = "Delete";
+  deleteBtn.classList.add("delete-btn");
+  info_btns.classList.add("info-btns");
+  info_btns.appendChild(readBtn);
+  info_btns.appendChild(deleteBtn);
+
+  card_info.classList.add("info");
   card_container.classList.add("card_container");
   card.classList.add("card");
   card_img.src = Book.thumbnail;
   card_title.textContent = Book.title;
   card_author.textContent = Book.author;
-  card_info.textContent += `${Book.numPages} ${Book.alreadyRead}`;
+  card_info.textContent += `${Book.numPages} pages `;
   card.appendChild(card_img_container);
   card.appendChild(card_title);
   card.appendChild(card_author);
   card.appendChild(card_info);
+  card.appendChild(info_btns);
   card_container.appendChild(card);
   bookShelf.appendChild(card_container);
 }
