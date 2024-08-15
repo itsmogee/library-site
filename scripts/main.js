@@ -88,6 +88,19 @@ function createCard(Book) {
   const card_info = document.createElement("div");
   const info_btns = document.createElement("div");
   const readBtn = document.createElement("button");
+  card_img_ribbon.classList.add(Book.alreadyRead === true ? "read" : "unread");
+  readBtn.addEventListener("click", () => {
+    Book.alreadyRead = !Book.alreadyRead;
+    card_img_ribbon_span.textContent =
+      Book.alreadyRead === true ? "Read" : "Unread";
+    card_img_ribbon.classList.remove(
+      Book.alreadyRead === true ? "unread" : "read",
+    );
+    card_img_ribbon.classList.add(
+      Book.alreadyRead === true ? "read" : "unread",
+    );
+    console.log(card_img_ribbon.classList);
+  });
   readBtn.textContent = "Read";
   readBtn.classList.add("read-btn");
   const deleteBtn = document.createElement("button");

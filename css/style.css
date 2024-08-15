@@ -220,3 +220,11 @@ body {
 .delete-btn:hover {
   background: #bd1550;
 }
+
+.read {
+  background-color: #04aa6d;
+}
+
+.unread {
+  background: #bd1550;
+}
