@@ -62,7 +62,6 @@ function initialize() {
 initialize();
 
 const bookShelf = document.querySelector("#bookshelf");
-//bookShelf.style.backgroundColor = "black";
 bookShelf.style.color = "wheat";
 
 function createCard(Book) {
@@ -82,11 +81,13 @@ function createCard(Book) {
   card_img_container.appendChild(card_img_ribbon);
   card_img_ribbon.appendChild(card_img_ribbon_span);
 
-  // Card Information
+  // Card Information structure
   const card_title = document.createElement("h1");
   const card_author = document.createElement("h2");
   const card_info = document.createElement("div");
   const info_btns = document.createElement("div");
+
+  // Read Button
   const readBtn = document.createElement("button");
   card_img_ribbon.classList.add(Book.alreadyRead === true ? "read" : "unread");
   readBtn.addEventListener("click", () => {
@@ -99,14 +100,16 @@ function createCard(Book) {
     card_img_ribbon.classList.add(
       Book.alreadyRead === true ? "read" : "unread",
     );
-    console.log(card_img_ribbon.classList);
   });
   readBtn.textContent = "Read";
   readBtn.classList.add("read-btn");
+
+  // Delete Button
   const deleteBtn = document.createElement("button");
   deleteBtn.type = "button";
   deleteBtn.textContent = "Delete";
   deleteBtn.classList.add("delete-btn");
+
   info_btns.classList.add("info-btns");
   info_btns.appendChild(readBtn);
   info_btns.appendChild(deleteBtn);
@@ -125,6 +128,23 @@ function createCard(Book) {
   card.appendChild(info_btns);
   card_container.appendChild(card);
   bookShelf.appendChild(card_container);
+
+  deleteBtn.addEventListener("click", () => {
+    i = 0;
+    while (i < library.length) {
+      if (Book === library[i]) {
+        library.splice(i, 1);
+        while (bookShelf.firstChild) {
+          bookShelf.removeChild(bookShelf.firstChild);
+        }
+        library.forEach((book) => {
+          createCard(book);
+        });
+        break;
+      }
+      i++;
+    }
+  });
 }
 
 library.forEach((book) => {

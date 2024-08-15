@@ -135,18 +135,38 @@ body {
 
 .add-btn {
   width: 30%;
-  height: 70%;
+  height: 60%;
+  justify-self: center;
   align-self: center;
+  border: 1px solid #249a9d;
+  font-weight: 900;
   border-radius: 12px;
-  font-size: 1.4rem;
-  border: 0px solid #000;
+  font-size: 1.1rem;
+  background-color: #449abd;
   padding: 1rem;
 
   transition-duration: 0.4s;
+
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+
+  /*border: none;*/
+  border-radius: 15px;
+  box-shadow: 0 4px #999;
 }
 
 .add-btn:hover {
-  background-color: #829a2d; /* Green */
+  background-color: #3e8e41;
+}
+
+.add-btn:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .ribbon {
@@ -179,19 +199,19 @@ body {
   position: relative;
   top: -20px;
   width: 100%;
-  /*height: 50%;*/
-  /*border: 1px solid salmon;*/
   justify-content: space-around;
   gap: 1rem;
 
   button {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 8px 10px;
+    font-weight: 800;
+    width: 30%;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
+    color: wheat;
 
     border: none;
     border-radius: 15px;
