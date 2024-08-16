@@ -17,6 +17,35 @@
       </header>
       <main>
         <div id="bookshelf"></div>
+        <dialog>
+          <form action="" method="dialog">
+            <h1>New Book<span class="close">&times;</span></h1>
+
+            <div class="new-book">
+              <label>
+                Title :
+                <input required type="text" placeholder="Title" />
+              </label>
+              <label>
+                Author :
+                <input type="text" required placeholder="Author" />
+              </label>
+              <label>
+                Num of Pages :
+                <input type="number" required />
+              </label>
+              <label>
+                Completed Reading :
+                <input type="checkbox" required />
+              </label>
+              <label>
+                Thumbnail Url :
+                <input type="text" required placeholder="Url or Path" />
+              </label>
+            </div>
+            <button autofocus type="submit">Confirm</button>
+          </form>
+        </dialog>
       </main>
       <footer>Copyright (c) 2024 itsmogee. All Rights Reserved.</footer>
     </div>

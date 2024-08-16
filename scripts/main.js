@@ -90,6 +90,9 @@ function createCard(Book) {
   // Read Button
   const readBtn = document.createElement("button");
   card_img_ribbon.classList.add(Book.alreadyRead === true ? "read" : "unread");
+  card.classList.add(
+    Book.alreadyRead === true ? "read-border" : "unread-border",
+  );
   readBtn.addEventListener("click", () => {
     Book.alreadyRead = !Book.alreadyRead;
     card_img_ribbon_span.textContent =
@@ -99,6 +102,12 @@ function createCard(Book) {
     );
     card_img_ribbon.classList.add(
       Book.alreadyRead === true ? "read" : "unread",
+    );
+    card.classList.remove(
+      Book.alreadyRead === true ? "unread-border" : "read-border",
+    );
+    card.classList.add(
+      Book.alreadyRead === true ? "read-border" : "unread-border",
     );
   });
   readBtn.textContent = "Read";
@@ -146,6 +155,20 @@ function createCard(Book) {
     }
   });
 }
+
+const addBookBtn = document.querySelector(".add-btn");
+const dialog = document.querySelector("dialog");
+const closeBtn = document.querySelector(".close");
+
+// Show the dialog
+addBookBtn.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// Close the dialog
+closeBtn.addEventListener("click", () => {
+  dialog.close();
+});
 
 library.forEach((book) => {
   createCard(book);
