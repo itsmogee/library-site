@@ -15,6 +15,6 @@ and CSS skills on a real-world application.
 
 ## Purpose
 
-This project was completed as part of the Odin Project Javascript path, it is a
+This project was completed as part of the [Odin Project](https://www.theodinproject.com) Javascript path, it is a
 project to play around with objects and array of objects, and some intermediate
 html and css to build a functional site.
