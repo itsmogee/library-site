@@ -18,33 +18,29 @@
       <main>
         <div id="bookshelf"></div>
         <dialog>
-          <form action="" method="dialog">
+          <form action="" method="dialog" class="submit">
             <h1>New Book<span class="close">&times;</span></h1>
 
             <div class="new-book">
               <label>
                 Title :
-                <input required type="text" placeholder="Title" />
+                <input id="title" type="text" required placeholder="Title" />
               </label>
               <label>
                 Author :
-                <input type="text" required placeholder="Author" />
+                <input id="author" type="text" required placeholder="Author" />
               </label>
               <label>
                 Num of Pages :
-                <input type="number" required />
+                <input id="numPages" required type="number" />
               </label>
               <label>
                 Completed Reading :
-                <input type="checkbox" required />
+                <input id="alreadyRead" type="checkbox" />
               </label>
               <label>
                 Thumbnail Url :
-                <input
-                  type="text"
-                  required
-                  placeholder="Url or Path (Optional)"
-                />
+                <input type="text" id="imgUrl" placeholder="Url (Optional)" />
               </label>
             </div>
             <button autofocus type="submit">Confirm</button>

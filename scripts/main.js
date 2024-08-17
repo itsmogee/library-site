@@ -126,7 +126,16 @@ function createCard(Book) {
   card_info.classList.add("info");
   card_container.classList.add("card_container");
   card.classList.add("card");
-  card_img.src = Book.thumbnail;
+
+  const img = new Image();
+  img.src = Book.thumbnail;
+  img.onerror = function (e) {
+    e.stopPropagation();
+    img.src = "../assets/generic.png";
+    card_img.src = img.src;
+  };
+  card_img.src = img.src;
+
   card_title.textContent = Book.title;
   card_author.textContent = Book.author;
   card_info.textContent += `${Book.numPages} pages `;
@@ -143,12 +152,7 @@ function createCard(Book) {
     while (i < library.length) {
       if (Book === library[i]) {
         library.splice(i, 1);
-        while (bookShelf.firstChild) {
-          bookShelf.removeChild(bookShelf.firstChild);
-        }
-        library.forEach((book) => {
-          createCard(book);
-        });
+        updateLibrary();
         break;
       }
       i++;
@@ -156,9 +160,19 @@ function createCard(Book) {
   });
 }
 
+const updateLibrary = () => {
+  while (bookShelf.firstChild) {
+    bookShelf.removeChild(bookShelf.firstChild);
+  }
+  library.forEach((book) => {
+    createCard(book);
+  });
+};
+
 const addBookBtn = document.querySelector(".add-btn");
 const dialog = document.querySelector("dialog");
 const closeBtn = document.querySelector(".close");
+const submit = document.querySelector(".submit");
 
 // Show the dialog
 addBookBtn.addEventListener("click", () => {
@@ -172,4 +186,34 @@ closeBtn.addEventListener("click", () => {
 
 library.forEach((book) => {
   createCard(book);
+});
+
+// Submit Button Functionality
+submit.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const title = document.getElementById("title");
+  const author = document.getElementById("author");
+  const numPages = document.getElementById("numPages");
+  const alreadyRead = document.getElementById("alreadyRead");
+  const imgUrl = document.getElementById("imgUrl");
+
+  if (title.value === "" || author.value === "" || numPages.value === "") {
+    alert("Ensure you input values to the fields");
+  } else {
+    addBookToLibrary(
+      title.value,
+      author.value,
+      numPages.value,
+      alreadyRead.checked,
+      imgUrl.value,
+    );
+    updateLibrary();
+    title.value = "";
+    author.value = "";
+    numPages.value = "";
+    alreadyRead.checked = false;
+    imgUrl.value = "";
+    dialog.close();
+  }
 });
