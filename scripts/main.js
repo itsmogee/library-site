@@ -26,42 +26,42 @@ function initialize() {
     "J.R.R. Tolkien",
     295,
     true,
-    "../assets/thehobbit.jpg",
+    "./assets/thehobbit.jpg",
   );
   addBookToLibrary(
     "The Lord of the Rings",
     "J.R.R. Tolkien",
     644,
     true,
-    "../assets/lotr.jpg",
+    "./assets/lotr.jpg",
   );
   addBookToLibrary(
     "A Song of Fire and Ice",
     "G.R.R. Martin",
     694,
     false,
-    "../assets/got.jpg",
+    "./assets/got.jpg",
   );
   addBookToLibrary(
     "The Art of War",
     "Sun Tzu ",
     350,
     true,
-    "../assets/artofwar.jpg",
+    "./assets/artofwar.jpg",
   );
   addBookToLibrary(
     "Atomic Habits",
     "James Clear",
     320,
     false,
-    "../assets/atomic.jpg",
+    "./assets/atomic.jpg",
   );
   addBookToLibrary(
     "Generic Book",
     "James Franco",
     390,
     false,
-    "../assets/atoic.jpg",
+    "./assets/generic.png",
   );
 }
 
@@ -138,7 +138,7 @@ function createCard(Book) {
   img.src = Book.thumbnail;
   img.onerror = function (e) {
     e.stopPropagation();
-    img.src = "../assets/generic.png";
+    img.src = "./assets/generic.png";
     card_img.src = img.src;
   };
   card_img.src = img.src;
