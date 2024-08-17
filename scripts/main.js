@@ -152,7 +152,14 @@ function createCard(Book) {
     while (i < library.length) {
       if (Book === library[i]) {
         library.splice(i, 1);
-        updateLibrary();
+        const newLib = [];
+        if (searchQuery !== "") {
+          findQuery(newLib);
+          updateLibrary(newLib);
+        } else {
+          updateLibrary(library);
+          return;
+        }
         break;
       }
       i++;
@@ -160,11 +167,11 @@ function createCard(Book) {
   });
 }
 
-const updateLibrary = () => {
+const updateLibrary = function (newLibrary) {
   while (bookShelf.firstChild) {
     bookShelf.removeChild(bookShelf.firstChild);
   }
-  library.forEach((book) => {
+  newLibrary.forEach((book) => {
     createCard(book);
   });
 };
@@ -208,7 +215,7 @@ submit.addEventListener("submit", (event) => {
       alreadyRead.checked,
       imgUrl.value,
     );
-    updateLibrary();
+    updateLibrary(library);
     title.value = "";
     author.value = "";
     numPages.value = "";
@@ -217,3 +224,26 @@ submit.addEventListener("submit", (event) => {
     dialog.close();
   }
 });
+
+// Search book functionality
+const search = document.getElementById("search");
+let searchQuery = "";
+search.onkeyup = (event) => {
+  searchQuery = event.target.value;
+  const newLib = [];
+  if (searchQuery !== "") {
+    findQuery(newLib);
+  } else {
+    updateLibrary(library);
+    return;
+  }
+  updateLibrary(newLib);
+};
+
+const findQuery = (newLib) => {
+  for (let key of library) {
+    if (key.title.toLowerCase().includes(searchQuery.toLowerCase())) {
+      newLib.push(key);
+    }
+  }
+};
