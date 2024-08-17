@@ -32,7 +32,7 @@ function initialize() {
     "The Lord of the Rings",
     "J.R.R. Tolkien",
     644,
-    false,
+    true,
     "../assets/lotr.jpg",
   );
   addBookToLibrary(
@@ -46,7 +46,7 @@ function initialize() {
     "The Art of War",
     "Sun Tzu ",
     350,
-    false,
+    true,
     "../assets/artofwar.jpg",
   );
   addBookToLibrary(
@@ -55,6 +55,13 @@ function initialize() {
     320,
     false,
     "../assets/atomic.jpg",
+  );
+  addBookToLibrary(
+    "Generic Book",
+    "James Franco",
+    390,
+    false,
+    "../assets/atoic.jpg",
   );
 }
 
