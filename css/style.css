@@ -180,7 +180,7 @@ body {
 }
 
 .ribbon {
-  --t: -90%; /* the top offset */
+  --t: -88%; /* the top offset */
   --f: 10px;
   --r: 10px;
 
@@ -189,8 +189,8 @@ body {
   text-align: center;
   position: relative;
   font-weight: bold;
-  inset: var(--t) 0 auto 73%;
-  padding: 4px 0 var(--f) calc(4px + var(--r));
+  inset: var(--t) 0 auto 68%;
+  padding: 4px 9px calc(4px + var(--f)) calc(4px + var(--r));
   clip-path: polygon(
     0 0,
     100% 0,
